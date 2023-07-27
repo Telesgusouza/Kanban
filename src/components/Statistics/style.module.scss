@@ -1,0 +1,133 @@
+.container {
+  // background-color: red;
+
+  h1 {
+    font-size: 1.7rem;
+    text-align: center;
+    color: rgb(20, 20, 20);
+  }
+}
+
+.containerStatistics {
+  width: 100%;
+
+  margin-top: 30px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 24px;
+
+  article {
+    width: 100%;
+    padding: 20px 0px;
+
+    border-radius: 8px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow: 0 0 18px rgba(158, 158, 158, 0.515);
+
+    h2 {
+      padding: 0 5px;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: rgb(25, 25, 25);
+    }
+
+    cursor: pointer;
+  }
+
+  @media (max-width: 850px) {
+    grid-gap: 16px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 680px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (max-width: 570px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ContainerMoreInformation {
+  margin-top: 50px;
+  padding: 50px;
+  width: 100%;
+
+  border-radius: 8px;
+
+  box-shadow: 0 0 18px rgba(158, 158, 158, 0.515);
+
+  h3 {
+    margin-top: 50px;
+    color: rgb(20, 20, 20);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: rgb(20, 20, 20);
+  }
+
+  .chart {
+    max-width: 500px;
+    margin: 40px auto;
+  }
+
+  ul {
+    margin-top: 20px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 18px;
+
+    list-style: circle;
+  }
+
+  li {
+    cursor: pointer;
+
+    strong {
+      color: rgb(25, 25, 25);
+      font-size: 1.1rem;
+    }
+
+    p {
+      margin-top: 4px;
+      font-size: 1rem;
+    }
+  }
+}
+
+@keyframes loading {
+  0% {
+    background-position: 0%;
+  }
+
+  50% {
+    background-position: 100%;
+  }
+
+  100% {
+    background-position: 0%;
+  }
+}
+
+.loading {
+  margin: auto;
+  width: 65%;
+  height: 65%;
+  border-radius: 5px;
+
+  background: transparent;
+
+  background-image: linear-gradient(45deg, transparent, #c3c3c3, transparent);
+  background-size: 400%;
+  animation: loading 1s linear infinite;
+}

@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap");
+
+.main {
+  min-height: 100vh;
+
+  font-family: "Titillium Web", sans-serif;
+  display: flex;
+}
+
+.containerSection {
+  width: 50%;
+  min-height: 100vh;
+
+  padding: 30px 50px;
+
+  display: flex;
+  justify-content: center;
+
+  background-color: #f8fafc;
+
+  article {
+    width: fit-content;
+    max-width: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 650px) {
+    width: 100%;
+  }
+
+  @media (max-width: 450px) {
+    padding: 25px 28px;
+  }
+}
+
+.form {
+  margin: auto 0;
+  margin-top: 20px;
+
+  h1 {
+    font-weight: 600;
+    font-size: 2.25rem;
+    color: #1e293b;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 1rem;
+    color: #475569;
+    margin-top: 10px;
+  }
+
+  form {
+    margin: 35px 0 30px 0;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 14px;
+  }
+
+  label {
+    width: 100%;
+    font-weight: 600;
+    font-size: 14px;
+    color: #1e293b;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .containerPassword {
+      position: relative;
+
+      input {
+        padding-right: 40px;
+      }
+
+      img {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+
+        cursor: pointer;
+      }
+    }
+
+    input {
+      width: 100%;
+      margin-top: 8px;
+      padding: 14px 10px;
+      border-radius: 4px;
+
+      background-color: white;
+      border: 1px solid #e2e8f0;
+
+      outline: 0;
+
+      &:hover,
+      &:focus {
+        border: 1px solid #7c3aed;
+      }
+    }
+
+    span {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 14px;
+    border: 0;
+    outline: 0;
+
+    background-color: #7c3aed;
+    color: white;
+    font-weight: 1rem;
+    font-weight: 600;
+
+    transition: background-color 0.14s ease-out;
+    transition: cursor 0.14s ease-out;
+
+    &:hover {
+      background-color: #9f67ff;
+    }
+
+    &:disabled {
+      background-color: #9f67ffd8;
+      cursor: not-allowed;
+    }
+  }
+
+  span {
+    color: #7c3aed;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (max-width: 450px) {
+    p, h1 {
+      text-align: center;
+    }
+  }
+}
+
+.errorInput {
+  border: 1px solid #ed3a5a !important ;
+}
+
+.errorContent {
+  margin-top: 6px;
+  color: #ed3a5a;
+}
+
+.containerRight {
+  width: 50%;
+  min-height: 100vh;
+
+  background-image: url(../../public/images/bgLogin.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @media (max-width: 650px) {
+    display: none;
+  }
+}
+
+.containerPhoto {
+  background-color: rgb(229, 229, 229);
+  position: relative;
+
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  img {
+    margin: 0 auto;
+    width: 25px;
+    height: fit-content;
+  }
+
+  .imgAvatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 8;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+  input {
+    position: absolute;
+    top: -10px;
+    left: 0;
+
+    z-index: 10;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    cursor: pointer;
+  }
+}

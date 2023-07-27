@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #7c3aed;
+  display: flex;
+}
+@media (max-width: 680px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+.containerRight {
+  width: 100%;
+  min-height: 100vh;
+  padding: 35px 25px 30px 25px;
+  background-color: #fbfaff;
+  border-top-left-radius: 20px;
+}
+.containerRight .delimitArea {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 680px) {
+  .containerRight {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+}/*# sourceMappingURL=style.module.css.map */

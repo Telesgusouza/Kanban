@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  background-color: #7c3aed;
+}
+@media (max-width: 680px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+.containerRight div {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}/*# sourceMappingURL=styles.module.css.map */

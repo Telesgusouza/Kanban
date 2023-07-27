@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: #7c3aed;
+
+    @media (max-width: 680px) {
+        flex-direction: column;
+    }
+}
+
+.containerRight {
+   
+}

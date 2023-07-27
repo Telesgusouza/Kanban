@@ -1,0 +1,164 @@
+.container {
+  width: 100%;
+  max-width: 400px !important ;
+
+  form {
+    width: 100%;
+    max-width: 400px;
+
+    margin-bottom: 40px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+
+    strong {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    &:nth-child(2) {
+      position: relative;
+      height: 110px;
+    }
+  }
+
+  input {
+    margin-top: 10px;
+    padding: 7px 15px;
+    outline: 0;
+  }
+
+  label {
+    &:nth-child(4) {
+      input {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  button {
+    border: none;
+    background-color: rgb(29, 127, 255);
+    color: white;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+  }
+
+  p {
+    margin-top: 10px;
+    color: rgb(0, 98, 255);
+
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.photo {
+  width: 80px !important;
+  height: 80px !important;
+
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  overflow: hidden;
+
+  img {
+    &:nth-child(1) {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &:nth-child(2) {
+      position: absolute;
+      width: 20px;
+    }
+  }
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+    cursor: pointer;
+  }
+}
+
+.btnContainer {
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  button {
+    border-radius: 5px;
+    background-color: #fc5a51;
+
+    &:nth-child(1) {
+      margin-right: 10px;
+    }
+  }
+}
+
+
+@keyframes loading {
+  0% {
+    background-position: 0%;
+  }
+
+  50% {
+    background-position: 100%;
+  }
+
+  100% {
+    background-position: 0%;
+  }
+}
+
+
+.loadingPhoto {
+  width: 80px !important;
+  height: 80px;
+  border-radius: 50%;
+
+  background-image: linear-gradient(45deg, transparent, #c3c3c3, transparent);
+  background-size: 400%;
+
+  animation: loading 1s linear infinite;
+}
