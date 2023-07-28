@@ -2,7 +2,6 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
 } from "firebase/auth";
@@ -20,14 +19,15 @@ import cameraImg from "../../public/images/camera.svg";
 import eye from "../../public/images/eye.png";
 import eyeOff from "../../public/images/eye-off.png";
 import { auth, db, storage } from "./api/services/firebaseConfig";
+import { getUserOn } from "./api/utils";
 
 export default function Home() {
   const [file, setFile] = useState<any | null>(null);
   const [documentFile, setDocumentFile] = useState<any | null>(null);
 
-  const [name, setName] = useState<string>("gg");
-  const [email, setEmail] = useState<string>("telesgusouza@gmail.com");
-  const [password, setPassword] = useState<string>("gu98802381");
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [togglePassword, setTogglePassword] = useState<boolean>(false);
 
   const [toggle, setToggle] = useState<boolean>(false);
@@ -36,14 +36,6 @@ export default function Home() {
   const [loadingSubmit, setLoadingSubmit] = useState<boolean>(false);
 
   useEffect(() => {
-    async function getUserOn() {
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          window.location.replace("/dashboard");
-        }
-      });
-    }
-
     getUserOn();
 
     return () => {};

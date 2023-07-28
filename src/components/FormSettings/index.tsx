@@ -36,7 +36,7 @@ export default function FormSettings() {
         if (data.avatar) {
           setPhoto(data.avatar);
         } else {
-          setPhoto(undefined)
+          setPhoto(undefined);
         }
       }
     }
@@ -94,7 +94,11 @@ export default function FormSettings() {
 
           data["avatar"] = getAvatar;
         } else {
-          data["avatar"] = photo;
+          if (!!photo) {
+            data["avatar"] = photo;
+          } else {
+            data["avatar"] = null;
+          }
         }
       } else {
         toast.info("Preencha os campos.", { delay: 500 });
@@ -144,7 +148,6 @@ export default function FormSettings() {
     }
   }
 
-
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit}>
@@ -153,11 +156,6 @@ export default function FormSettings() {
         <label htmlFor="photo">
           <span>Foto</span>
           <div className={styles.photo}>
-            {/* {!!photo ? (
-              <img src={photo} loading="lazy" alt="Avatar do usuario" />
-            ) : (
-              <Image src={imgNoUser} loading="lazy" alt="Avatar do usuario" />
-            )} */}
 
             {photo === null ? (
               <>

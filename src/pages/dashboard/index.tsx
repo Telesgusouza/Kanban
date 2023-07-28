@@ -6,20 +6,11 @@ import SectionContent from "@/components/SectionContent";
 import { ToastContainer } from "react-toastify";
 import SearchFilter from "@/components/SearchFilter";
 import { useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../api/services/firebaseConfig";
+import { userOn } from "../api/utils";
 
 export default function dashboard() {
 
   useEffect(() => {
-    async function userOn() {
-      onAuthStateChanged(auth, (user) => {
-        if (!user) {
-          window.location.replace("/");
-        }
-      });
-    }
-
     userOn();
   }, []);
 

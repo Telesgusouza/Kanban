@@ -24,7 +24,8 @@ export default function Header() {
       const data: DocumentData | undefined = (
         await getDoc(doc(db, `/dataUser/${uid}`))
       ).data();
-      if (data) {
+
+      if (data && data.avatar) {
         setAvatar(data.avatar);
       } else {
         setAvatar(undefined);

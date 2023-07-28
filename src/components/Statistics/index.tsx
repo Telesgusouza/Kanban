@@ -60,7 +60,9 @@ export default function Statistics() {
   }, []);
 
   useEffect(() => {
-    const totalSize = sizeAFazer + sizeFazendo + sizeFinalizado;
+    let totalSize = sizeAFazer + sizeFazendo + sizeFinalizado;
+
+    if (totalSize <= 0) totalSize = 1;
 
     setConfigAFazer({
       series: [sizeAFazer, totalSize - sizeAFazer],
@@ -163,8 +165,6 @@ export default function Statistics() {
     setListCurrent(data);
   }
 
-  console.log(listCurrent);
-
   return (
     <section className={styles.container}>
       <h1>Estátisticas</h1>
@@ -233,20 +233,23 @@ export default function Statistics() {
             </>
           )}
 
-          <h3>Lista de tarefas</h3>
+          {listCurrent.content.length > 0 && (
+            <>
+              <h3>Lista de tarefas</h3>
 
-          <ul>
-            {listCurrent.content &&
-              listCurrent.content.map((resp) => (
-                <li onClick={redirectPage} key={resp.id}>
-                  <div>
-                    <strong>{resp.title}</strong>
-                    <p>{resp.content}</p>
-                  </div>
-                </li>
-              ))}
-            
-          </ul>
+              <ul>
+                {listCurrent.content &&
+                  listCurrent.content.map((resp) => (
+                    <li onClick={redirectPage} key={resp.id}>
+                      <div>
+                        <strong>{resp.title}</strong>
+                        <p>{resp.content}</p>
+                      </div>
+                    </li>
+                  ))}
+              </ul>
+            </>
+          )}
         </div>
       ) : (
         <></>

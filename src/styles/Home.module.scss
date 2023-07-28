@@ -4,11 +4,15 @@
   min-height: 100vh;
 
   font-family: "Titillium Web", sans-serif;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 750px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .containerSection {
-  width: 50%;
   min-height: 100vh;
 
   padding: 30px 50px;
@@ -147,7 +151,8 @@
   }
 
   @media (max-width: 450px) {
-    p, h1 {
+    p,
+    h1 {
       text-align: center;
     }
   }
@@ -163,15 +168,16 @@
 }
 
 .containerRight {
-  width: 50%;
   min-height: 100vh;
+
+  overflow: hidden;
 
   background-image: url(../../public/images/bgLogin.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
-  @media (max-width: 650px) {
+  @media (max-width: 750px) {
     display: none;
   }
 }
