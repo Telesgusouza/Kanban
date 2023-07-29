@@ -18,12 +18,10 @@ import {
   getDocs,
   query,
   setDoc,
-  
   where,
 } from "firebase/firestore";
 
 export default function SectionContent() {
- 
   const [toggleForm, setToggleForm] = useState<boolean[]>([false, false]);
   const [toggleViewCard, setToggleViewCard] = useState<boolean>(false);
   const [btnForm, setBtnForm] = useState<boolean>(false);
@@ -388,14 +386,15 @@ export default function SectionContent() {
                 {toggleForm[1] ? "Editar" : "Adicionar"}
               </button>
             </form>
-
-            <button
-              disabled={btnDelete}
-              className={styles.btnClosed}
-              onClick={deleteTask}
-            >
-              Deletar
-            </button>
+            {toggleForm[1] && (
+              <button
+                disabled={btnDelete}
+                className={styles.btnClosed}
+                onClick={deleteTask}
+              >
+                Deletar
+              </button>
+            )}
           </div>
         </div>
       )}

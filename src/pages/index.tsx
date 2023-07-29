@@ -24,33 +24,6 @@ import bgRight from "../../public/images/bgLogin.png";
 import { auth, db, storage } from "./api/services/firebaseConfig";
 import { getUserOn } from "./api/utils";
 
-/*
-
-tenho uma imagem dentro de uma div, essa div tem q ter certo tamanho e seu tamanho pode e ira mudar
-mas a tag de imagem constantemente empurra verticalmente e estende além do nescessario
-
-
-
-
-
-.containerRight {
-  min-height: 100vh;
-
-  overflow: hidden;
-
-
-  @media (max-width: 750px) {
-    display: none;
-  }
-}
-
-
-        <div className={styles.containerRight}>
-          <Image src={bgRight} alt="Imagem a direita da tela" />
-        </div>
-
-*/
-
 export default function Home() {
   const [file, setFile] = useState<any | null>(null);
   const [documentFile, setDocumentFile] = useState<any | null>(null);
