@@ -65,6 +65,10 @@
 .ContainerMoreInformation .chart {
   max-width: 500px;
   margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .ContainerMoreInformation ul {
   margin-top: 20px;
@@ -83,6 +87,11 @@
 .ContainerMoreInformation li p {
   margin-top: 4px;
   font-size: 1rem;
+}
+@media (max-width: 570px) {
+  .ContainerMoreInformation h2 {
+    text-align: center;
+  }
 }
 
 @keyframes loading {
