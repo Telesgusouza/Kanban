@@ -141,10 +141,13 @@
 .containerRight {
   min-height: 100vh;
   overflow: hidden;
-  background-image: url(../../public/images/bgLogin.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+}
+.containerRight img {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 @media (max-width: 750px) {
   .containerRight {

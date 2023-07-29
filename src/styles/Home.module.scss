@@ -172,10 +172,12 @@
 
   overflow: hidden;
 
-  background-image: url(../../public/images/bgLogin.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  img {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    object-fit: cover;
+  }
 
   @media (max-width: 750px) {
     display: none;
