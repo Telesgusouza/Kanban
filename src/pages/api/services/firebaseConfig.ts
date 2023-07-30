@@ -4,12 +4,12 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBx73qitQlo6AX24IgZsvYVnbaRYkQJ7eE",
-  authDomain: "kanban-27abd.firebaseapp.com",
-  projectId: "kanban-27abd",
-  storageBucket: "kanban-27abd.appspot.com",
-  messagingSenderId: "717279630814",
-  appId: "1:717279630814:web:4f392b2cf770221084f94f",
+  apiKey: "AIzaSyDP1L6L0PSFA4KWkjE-Y_09zfEINEKYDbs",
+  authDomain: "kanban-b71b4.firebaseapp.com",
+  projectId: "kanban-b71b4",
+  storageBucket: "kanban-b71b4.appspot.com",
+  messagingSenderId: "456804306049",
+  appId: "1:456804306049:web:6df5f8f4e26c2628ee5180"
 };
 
 const firebase = initializeApp(firebaseConfig);
