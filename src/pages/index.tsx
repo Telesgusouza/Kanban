@@ -25,8 +25,7 @@ import { auth, db, storage } from "./api/services/firebaseConfig";
 import { getUserOn } from "./api/utils";
 
 export default function Home() {
-  const [file, setFile] = useState<any | null>(null);
-  const [documentFile, setDocumentFile] = useState<any | null>(null);
+
 
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -44,24 +43,10 @@ export default function Home() {
 
   useEffect(() => {
     setErrorInput(null);
-  }, [file, name, email, password]);
+  }, [ name, email, password]);
 
   function handleToggleLogin() {
     setToggle(!toggle);
-  }
-
-  function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
-    const getFile = e.target.files?.[0];
-    setDocumentFile(getFile);
-
-    if (getFile) {
-      const reader = new FileReader();
-      reader.readAsDataURL(getFile);
-      reader.onload = () => {
-        const imageUrl = reader.result as string;
-        setFile(imageUrl);
-      };
-    }
   }
 
   async function newUser() {
@@ -73,23 +58,11 @@ export default function Home() {
       );
       const userUid = registerUser.user.uid;
 
-      if (!!documentFile) {
-        const refAvatar = ref(storage, `avatarUser/${userUid}`);
-        await uploadBytes(refAvatar, documentFile);
-        const avatarUrl = await getDownloadURL(refAvatar);
-
-        await setDoc(doc(db, `dataUser/${userUid}`), {
-          avatar: avatarUrl,
-          name,
-          email,
-        });
-      } else {
         await setDoc(doc(db, `dataUser/${userUid}`), {
           avatar: null,
           name,
           email,
         });
-      }
     } catch (err: any | unknown) {
       if (err.message === "Firebase: Error (auth/email-already-in-use).")
         toast.error("Usuário já existe");
@@ -170,20 +143,7 @@ export default function Home() {
               <form onSubmit={handleSubmit}>
                 {toggle && (
                   <>
-                    <label htmlFor="nome">
-                      <div className={styles.containerPhoto}>
-                        <input type="file" onChange={(e) => handleFile(e)} />
-                        <Image loading="lazy" src={cameraImg} alt="" />
-                        {!!file && (
-                          <img
-                            src={file}
-                            loading="lazy"
-                            alt=""
-                            className={styles.imgAvatar}
-                          />
-                        )}
-                      </div>
-                    </label>
+                  
 
                     <label htmlFor="nome">
                       Nome
