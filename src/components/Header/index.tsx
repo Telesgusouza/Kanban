@@ -6,7 +6,7 @@ import imgNoUser from "../../../public/images/noUser.png";
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { DocumentData, doc, getDoc, setDoc } from "firebase/firestore";
+import { DocumentData, collection, doc, getDoc, setDoc } from "firebase/firestore";
 import { auth, db } from "@/pages/api/services/firebaseConfig";
 import { User, onAuthStateChanged } from "firebase/auth";
 import { toast } from "react-toastify";
@@ -38,7 +38,7 @@ export default function Header() {
   useEffect(() => {
     async function getTitle() {
       const userUid = await getUid();
-      getDoc(doc(db, `dataUser/title-${userUid}`))
+      getDoc(doc(db, `dataUser/${userUid}/dataTitle/title`))
         .then((resp: DocumentData) => {
           if (resp.data().title) {
             setTitle(resp.data().title);
@@ -76,7 +76,7 @@ export default function Header() {
     const userUid = await getUid();
 
     if (userUid && titleContent) {
-      await setDoc(doc(db, `dataUser/title-${userUid}`), {
+      await setDoc(doc(db, `dataUser/${userUid}/dataTitle/title`), {
         title: titleContent,
       })
         .then(() => {
