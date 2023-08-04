@@ -26,7 +26,6 @@ import { getUserOn } from "./api/utils";
 
 export default function Home() {
 
-
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -195,7 +194,7 @@ export default function Home() {
                       type={togglePassword ? "text" : "password"}
                       onChange={(e) => setPassword(e.target.value)}
                       value={password}
-                      placeholder="Digite seu e-mail"
+                      placeholder="Digite seu senha"
                       className={
                         errorInput === "passwordErr" ? styles.errorInput : ""
                       }
